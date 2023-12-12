@@ -12,7 +12,7 @@
 #include "dotnetfile.h"
 #include "il.h"
 #include "intel.h"
-#include "../third-party/libffi/ffi.h"
+#include "../third-party/libffi/include/ffi.h"
 
 /**
  * lua utils
