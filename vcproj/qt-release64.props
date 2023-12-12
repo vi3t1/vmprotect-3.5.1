@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <QTDIR>C:\Qt\Qt5.6.0\5.6</QTDIR>
-    <PATH>%PATH%;C:\Qt\Qt5.6.0\5.6\msvc2015_static64\bin</PATH>
+    <QTDIR>C:\Qt\Qt5.6.3\5.6.3</QTDIR>
+    <PATH>%PATH%;C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin</PATH>
   </PropertyGroup>
   <PropertyGroup>
     <CustomBuildBeforeTargets>
@@ -12,11 +12,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QTDIR)\msvc2015_static64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\msvc2015_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>%QTDIR%\msvc2015_static64\lib;$(QTDIR)\msvc2015_static64\plugins\platforms;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QtMain.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Concurrent.lib;Qt5Widgets.lib;Qt5WinExtras.lib;Qt5Help.lib;Qt5Sql.lib;Qt5Network.lib;Qt5CLucene.lib;qwindows.lib;Qt5PlatformSupport.lib;qtfreetype.lib;qtpcre.lib;qtharfbuzzng.lib;winmm.lib;imm32.lib;Opengl32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%QTDIR%\msvc2015_64\lib;$(QTDIR)\msvc2015_64\plugins\platforms;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>QtMain.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Concurrent.lib;Qt5Widgets.lib;Qt5WinExtras.lib;Qt5Help.lib;Qt5Sql.lib;Qt5Network.lib;Qt5CLucene.lib;Qt5PlatformSupport.lib;qtfreetype.lib;winmm.lib;imm32.lib;Opengl32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>

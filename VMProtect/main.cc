@@ -5,12 +5,15 @@
 #include "mainwindow.h"
 #include "help_browser.h"
 
-#ifndef VMP_GNU
-#ifndef _DEBUG
-#include <QtCore\QtPlugin>
-Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
-#endif
-#endif
+//
+// we now use dynamic Qt, so no more QWindowsIntegrationPlugin
+//
+// #ifndef VMP_GNU
+// #ifndef _DEBUG
+// #include <QtCore\QtPlugin>
+// Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
+// #endif
+// #endif
 
 class PatchedProxyStyle : public QProxyStyle
 {
@@ -96,7 +99,7 @@ void Application::initScalingConstants()
 
 	devicePixelRatio_ = 
 #ifdef __APPLE__
-		1.4 *  // проверял на виртуалке (RENDER_DPI для мака, говорят, примерно во столько раз меньше), но подозреваю, что на макбуке с ретиной получим сюрприз
+		1.4 *  // (broken utf-8 string here)
 #endif
 		devicePixelRatio();
 
