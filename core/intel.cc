@@ -16036,7 +16036,7 @@ void IntelFunction::GetFreeRegisters(size_t index, CommandInfoList &free_registr
 	free_registr_list.set_change_flags(free_flags);
 }
 
-void IntelFunction::Mutate(const CompileContext &ctx, bool for_virtualization)
+void IntelFunction::Mutate(const CompileContext &ctx, bool for_virtualization, int)
 {
 	#define osRandom (OperandSize)0x80
 	#define osRandomStartWord (OperandSize)0x81
@@ -17331,7 +17331,7 @@ void IntelObfuscation::AddRestoreStack(size_t to_index)
 		AddCommand(cmLea, IntelOperand(otRegistr, cpu_address_size, regESP), IntelOperand(otMemory | otRegistr | otValue, cpu_address_size, regESP, value));
 }
 
-void IntelObfuscation::Compile(IntelFunction *func, size_t index)
+void IntelObfuscation::Compile(IntelFunction *func, size_t index, size_t, bool)
 {
 	func_ = func;
 	flags_.clear();
