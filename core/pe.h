@@ -518,7 +518,9 @@ typedef struct _IMAGE_TLS_DIRECTORY64 {
     ULONGLONG   AddressOfIndex;         // PDWORD
     ULONGLONG   AddressOfCallBacks;     // PIMAGE_TLS_CALLBACK *;
     DWORD   SizeOfZeroFill;
-    union { DWORD   Characteristics; };
+    union {
+        DWORD   Characteristics;
+    } DUMMYUNIONNAME;
 } IMAGE_TLS_DIRECTORY64;
 typedef IMAGE_TLS_DIRECTORY64 * PIMAGE_TLS_DIRECTORY64;
 
@@ -528,7 +530,9 @@ typedef struct _IMAGE_TLS_DIRECTORY32 {
     DWORD   AddressOfIndex;             // PDWORD
     DWORD   AddressOfCallBacks;         // PIMAGE_TLS_CALLBACK *
     DWORD   SizeOfZeroFill;
-    union { DWORD   Characteristics; };
+    union {
+        DWORD   Characteristics;
+    } DUMMYUNIONNAME;
 } IMAGE_TLS_DIRECTORY32;
 typedef IMAGE_TLS_DIRECTORY32 * PIMAGE_TLS_DIRECTORY32;
 
@@ -587,7 +591,7 @@ typedef struct _RUNTIME_FUNCTION {
 	union {
 		DWORD UnwindInfoAddress;
 		DWORD UnwindData;
-	};
+	} DUMMYUNIONNAME;
 } RUNTIME_FUNCTION;
 #endif
 
@@ -771,12 +775,18 @@ typedef struct _IMAGE_DELAY_IMPORT_DESCRIPTOR {
 	DWORD   TimeStamp;
 } IMAGE_DELAY_IMPORT_DESCRIPTOR;
 
+// https://github.com/google/syzygy/blob/master/syzygy/pe/pe_structs.h#L24
+// Redefinition of the IMAGE_LOAD_CONFIG_CODE_INTEGRITY structure. This
+// corresponds to the structure as encountered in the version 10.0+ of the
+// Windows SDK.
+#if !defined(_WIN32_WINNT) || _WIN32_WINNT < 0x0A00
 typedef struct _IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
-	WORD    Flags;          // Flags to indicate if CI information is available, etc.
-	WORD    Catalog;        // 0xFFFF means not available
-	DWORD   CatalogOffset;
-	DWORD   Reserved;       // Additional bitmask to be defined later
-} IMAGE_LOAD_CONFIG_CODE_INTEGRITY, *PIMAGE_LOAD_CONFIG_CODE_INTEGRITY;
+    WORD    Flags;          // Flags to indicate if CI information is available, etc.
+    WORD    Catalog;        // 0xFFFF means not available
+    DWORD   CatalogOffset;
+    DWORD   Reserved;       // Additional bitmask to be defined later
+} IMAGE_LOAD_CONFIG_CODE_INTEGRITY, * PIMAGE_LOAD_CONFIG_CODE_INTEGRITY;
+#endif
 
 //
 // Load Configuration Directory Entry

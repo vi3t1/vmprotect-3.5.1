@@ -3163,7 +3163,7 @@ void PERuntimeFunctionList::ReadFromFile(PEArchitecture &file, PEDirectory &dire
 	std::vector<uint8_t> call_frame_instructions;
 	for (size_t i = 0; i < directory.size(); i += sizeof(data)) {
 		file.Read(&data, sizeof(data));
-		Add(address_ + i, data.BeginAddress + image_base, data.EndAddress + image_base, data.UnwindData + image_base, 0, call_frame_instructions);
+		Add(address_ + i, data.BeginAddress + image_base, data.EndAddress + image_base, data.u.UnwindData + image_base, 0, call_frame_instructions);
 	}
 }
 
@@ -3178,7 +3178,7 @@ size_t PERuntimeFunctionList::WriteToFile(PEArchitecture &file)
 		PERuntimeFunction *runtime_function = item(i);
 		data.BeginAddress = static_cast<uint32_t>(runtime_function->begin() - image_base);
 		data.EndAddress = static_cast<uint32_t>(runtime_function->end() - image_base);
-		data.UnwindData = static_cast<uint32_t>(runtime_function->unwind_address() - image_base);
+		data.u.UnwindData = static_cast<uint32_t>(runtime_function->unwind_address() - image_base);
 		res += file.Write(&data, sizeof(data));
 	}
 
@@ -3405,7 +3405,7 @@ void PETLSDirectory::ReadFromFile(PEArchitecture &file, PEDirectory &directory)
 		address_of_index_ = tls.AddressOfIndex;
 		address_of_call_backs_ = tls.AddressOfCallBacks;
 		size_of_zero_fill_ = tls.SizeOfZeroFill;
-		characteristics_ = tls.Characteristics;
+		characteristics_ = tls.u.Characteristics;
 	} else {
 		IMAGE_TLS_DIRECTORY64 tls;
 		file.Read(&tls, sizeof(tls));
@@ -3414,7 +3414,7 @@ void PETLSDirectory::ReadFromFile(PEArchitecture &file, PEDirectory &directory)
 		address_of_index_ = tls.AddressOfIndex;
 		address_of_call_backs_ = tls.AddressOfCallBacks;
 		size_of_zero_fill_ = tls.SizeOfZeroFill;
-		characteristics_ = tls.Characteristics;
+		characteristics_ = tls.u.Characteristics;
 	}
 
 	if (!address_of_call_backs_)
