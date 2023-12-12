@@ -17,6 +17,7 @@
 #include <queue>
 #include <time.h>
 #include <memory>
+#include <functional>
 
 #ifdef VMP_GNU
 #include <unistd.h>
