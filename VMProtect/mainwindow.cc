@@ -1716,7 +1716,7 @@ void MainWindow::examples()
 #else
 	wchar_t buf[MAX_PATH];
 	QString path;
-	// приоритетная папка, сюда дистрибутив пишет
+	// (broken utf-8 string here)
 	if (SHGetSpecialFolderPathW(0, buf, CSIDL_COMMON_DOCUMENTS, FALSE))
 	{
 		path = QDir::fromNativeSeparators(QString::fromWCharArray(buf)) + "/VMProtect";
@@ -1725,8 +1725,8 @@ void MainWindow::examples()
 	}
 	if (path.isEmpty())
 	{
-		// если несколько юзеров работают одновременно, надо каждому скопировать папку из CSIDL_COMMON_DOCUMENTS к себе в документы,
-		// а исходную грохнуть - в итоге каждый работает со своим каталогом
+		// (broken utf-8 string here)
+		// (broken utf-8 string here)
 		path = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation).first() + "/VMProtect";
 	}
 #endif
