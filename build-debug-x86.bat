@@ -1,4 +1,3 @@
-echo off
 echo build-ultimate.bat: generating VMProtect Debug x86
 
 SET ROOT_DIR=%~dp0

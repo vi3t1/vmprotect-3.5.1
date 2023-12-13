@@ -1,4 +1,3 @@
-echo off
 echo build-libffi.bat: generating libffi-x86
 
 SET ROOT_DIR=%~dp0
