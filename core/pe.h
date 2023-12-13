@@ -638,8 +638,17 @@ typedef struct _UNWIND_INFO
 
 #ifndef UNW_FLAG_NHANDLER
 	#define UNW_FLAG_NHANDLER  0
+#endif
+
+#ifndef UNW_FLAG_EHANDLER
 	#define UNW_FLAG_EHANDLER  1
+#endif
+
+#ifndef UNW_FLAG_UHANDLER
 	#define UNW_FLAG_UHANDLER  2
+#endif
+
+#ifndef UNW_FLAG_CHAININFO
 	#define UNW_FLAG_CHAININFO 4
 #endif
 
