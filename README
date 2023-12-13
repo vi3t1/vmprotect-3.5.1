@@ -1,10 +1,39 @@
-VMProtect project
+# VMProtect project
 -----------------
 
-Building
+## 1. Build
 
-	POSIX:
-		$ ./build.sh
+1. Install Visual Studio 2022
 
-	Windows:
-		> build.bat
+2. Install Python3 latest version
+
+3. Install Qt 5.12.12
+
+```cmd
+$ pip install aqtinstall
+
+$ cd C:\
+
+$ mkdir Qt
+$ cd Qt
+$ aqt install-qt windows desktop 5.12.12 win32_msvc2017
+$ aqt install-qt windows desktop 5.12.12 win64_msvc2017_64
+```
+
+4. To build x64 version, in `x64 Native Tools Command Prompt for VS 2022`:
+
+```cmd
+$ set QTDIR=C:\Qt\5.12.12\msvc2017_64
+$ set PATH=%PATH%;C:\Qt\5.12.12\msvc2017_64\bin
+$ cmd.exe /c build-libffi.bat
+$ cmd.exe /c build-ultimate-x64.bat
+```
+
+To build x86 version, in `x86 Native Tools Command Prompt for VS 2022`:
+
+```cmd
+$ set QTDIR=C:\Qt\5.12.12\msvc2017
+$ set PATH=%PATH%;C:\Qt\5.12.12\msvc2017\bin
+$ cmd.exe /c build-libffi.bat
+$ cmd.exe /c build-ultimate-x86.bat
+```
