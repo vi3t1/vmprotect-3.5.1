@@ -1452,7 +1452,7 @@ TreeViewItemDelegate::TreeViewItemDelegate(QObject *parent)
 void TreeViewItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 	const QModelIndex &index) const
 {
-	QStyleOptionViewItemV4 opt = option;
+	QStyleOptionViewItem opt = option;
 	opt.state &= ~QStyle::State_HasFocus;
 	initStyleOption(&opt, index);
 	const QWidget *widget = opt.widget;
@@ -1499,7 +1499,7 @@ void TreeViewItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
 QSize TreeViewItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-	QStyleOptionViewItemV4 opt = option;
+	QStyleOptionViewItem opt = option;
 	const int border = (opt.widget->objectName().startsWith("grid") ? 1 : 0);
 	const int min_height = 18 * Application::stylesheetScaleFactor() + border;
 

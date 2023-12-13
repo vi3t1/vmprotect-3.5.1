@@ -9,11 +9,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(QTDIR)\msvc2015\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>%QTDIR%\msvc2015\lib;$(QTDIR)\msvc2015\plugins\platforms;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QtMain.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Concurrent.lib;Qt5Widgets.lib;Qt5WinExtras.lib;Qt5Help.lib;Qt5Sql.lib;Qt5Network.lib;Qt5CLucene.lib;Qt5PlatformSupport.lib;qtfreetype.lib;winmm.lib;imm32.lib;Opengl32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%QTDIR%\lib;$(QTDIR)\plugins\platforms;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>qtmain.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Concurrent.lib;Qt5Widgets.lib;Qt5WinExtras.lib;Qt5Help.lib;Qt5Sql.lib;Qt5Network.lib;qtfreetype.lib;winmm.lib;imm32.lib;Opengl32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>
