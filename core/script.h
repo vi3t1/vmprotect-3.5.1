@@ -2,20 +2,20 @@
 #define SCRIPT_H
 
 #include "../third-party/lua/lua.hpp"
-#include "../third-party/libffi/include/ffi.h"
+#include "../third-party/libffi/build/ffi.h"
 
 #ifndef VMP_GNU
 #ifdef _WIN64
 #if NDEBUG
-#pragma comment(lib, "../third-party/libffi/win32/vs16_x64/x64/Release/libffi.lib")
+#pragma comment(lib, "../third-party/libffi/build/libffi64.lib")
 #else
-#pragma comment(lib, "../third-party/libffi/win32/vs16_x64/x64/Debug/libffi.lib")
+#pragma comment(lib, "../third-party/libffi/build/libffi64d.lib")
 #endif // NDEBUG
 #else
 #if NDEBUG
-#pragma comment(lib, "../third-party/libffi/win32/vs16_x86/Release/libffi.lib")
+#pragma comment(lib, "../third-party/libffi/build/libffi32.lib")
 #else
-#pragma comment(lib, "../third-party/libffi/win32/vs16_x86/Release/libffi.lib")
+#pragma comment(lib, "../third-party/libffi/build/libffi32d.lib")
 #endif // NDEBUG
 #endif // _WIN64
 #endif // VMP_GNU
